@@ -3,7 +3,7 @@
 
 body {
     margin: 0;
-    font-family: system-ui -apple-system, Arial, sans-serif;
+    font-family: system-ui, -apple-system, Arial, sans-serif;
     line-height: 1.5;
 
     /* (10) Grid Layout for body */
@@ -34,13 +34,13 @@ header h1 {
 }
 footer p { margin: 0; }
 
-/* (13) Nav List Flex by default (horizontal) */
+/* (13) Nav List Flex horizontal */
 .nav-list {
     list-style: none;
     margin: 0;
     padding: 0;
 
-    display: felx;
+    display: flex;
     flex-direction: row;
     align-items: center;
     gap: 0.5rem;
@@ -65,7 +65,7 @@ footer p { margin: 0; }
     padding: 0.5rem 0;
 }
 
-/* (10) image-flex uses flex display */
+/* (10) image-flex to use flex display */
 #image-flex {
     display: flex;
     flex-wrap: wrap;
@@ -84,7 +84,7 @@ footer p { margin: 0; }
     padding: 0.5rem;
     border-radius: 0.5rem;
 
-    /* Default is 2 per rown on most phones */
+    /* Default is 2 per row for most phones */
     flex: 1 1 240px;
 }
 
@@ -96,7 +96,7 @@ footer p { margin: 0; }
 /* (11) Make Images Responsive */
 img {
     width: 100%;
-    height: fit-content;
+    height: auto;
     display: block;
     border-radius: 0.25rem;
 }
@@ -105,13 +105,11 @@ img {
 @media (max-width: 600px) {
     .nav-list {
         flex-direction: column;
-        align-items: stretch;
-    }
+        align-items: stretch; }
     .nav-link {
-        text-align: center;
-    }
+        text-align: center; }
 
-/*Further mobile tweaks*/
+/*more mobile tweaks*/
 header, main, footer { padding: 0.75rem;}
 header h1 { font-size: 1.35rem; }
 }
@@ -120,47 +118,39 @@ header h1 { font-size: 1.35rem; }
 @media (min-width: 768px) {
     body {
         padding: 1.25rem;
-        gap: 1.25rem;
-    }
+        gap: 1.25rem; }
      
     /* Example layout change: make main a 2 column grid */
     main {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 1.25rem;
-        align-items: start;
-    }
+        align-items: start; }
 
     main section { padding: 0; }
 
     /* Make gallery figures tighten on tablets */
     #image-flex figure {
-        flex: 1 1 calc(50% - 1rem);
-    }
+        flex: 1 1 calc(50% - 1rem); }
 }
 
 /* Large screen breakpoint: change layour again */
 @media (min-width: 1200px) {
     body {
        max-width: 1200px;
-       margin: 0 auto;
-    }
+       margin: 0 auto; }
 
     /* Wider main spacing */
 
-main {
-    gap: 1.5rem;
-}
+    main {
+       gap: 1.5rem; }
 
 /* Four across on larger screen */
 #image-flex figure {
-    flex: 1 1 calc(25% - 1rem);
-}
+    flex: 1 1 calc(25% - 1rem); }
 
 .nav-list {
-    gap: .75rem;
-}
-.nav-list {
-    padding: 0.6rem 0.9rem;
-}
+    gap: .75rem; }
+.nav-link {
+    padding: 0.6rem 0.9rem; }
 }
