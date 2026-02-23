@@ -1,0 +1,166 @@
+/*---Base/Mobile First---*/
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: system-ui -apple-system, Arial, sans-serif;
+    line-height: 1.5;
+
+    /* (10) Grid Layout for body */
+    display: grid;
+    grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+    gap: 1rem;
+    padding: 1rem;
+}
+
+header { grid-area: header; }
+nav {grid-area: nav; }
+main { grid-area: main; }
+footer { grid-area: footer; }
+
+header, main, footer {
+    padding: 1rem;
+    border: 1px solid #ddd;
+}
+
+/* (18) Mobile Appearance adjustments */
+header h1 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.5rem;
+}
+footer p { margin: 0; }
+
+/* (13) Nav List Flex by default (horizontal) */
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: felx;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* (15)(16) Link Spacing + hover styles */
+.nav-link {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    text-decoration: underline;
+}
+
+/* Main Spacing */
+.main-section {
+    padding: 0.5rem 0;
+}
+
+/* (10) image-flex uses flex display */
+#image-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: stretch;
+}
+
+#image-flex h2 {
+    flex-basis: 100%;
+    margin-top: 0;
+}
+
+#image-flex figure {
+    margin: 0;
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+
+    /* Default is 2 per rown on most phones */
+    flex: 1 1 240px;
+}
+
+#image-flex figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* (11) Make Images Responsive */
+img {
+    width: 100%;
+    height: fit-content;
+    display: block;
+    border-radius: 0.25rem;
+}
+
+/* (14) Small screens: stack vertically */
+@media (max-width: 600px) {
+    .nav-list {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .nav-link {
+        text-align: center;
+    }
+
+/*Further mobile tweaks*/
+header, main, footer { padding: 0.75rem;}
+header h1 { font-size: 1.35rem; }
+}
+
+/* (12) Tablet Breakpoint: change layout */
+@media (min-width: 768px) {
+    body {
+        padding: 1.25rem;
+        gap: 1.25rem;
+    }
+     
+    /* Example layout change: make main a 2 column grid */
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+        align-items: start;
+    }
+
+    main section { padding: 0; }
+
+    /* Make gallery figures tighten on tablets */
+    #image-flex figure {
+        flex: 1 1 calc(50% - 1rem);
+    }
+}
+
+/* Large screen breakpoint: change layour again */
+@media (min-width: 1200px) {
+    body {
+       max-width: 1200px;
+       margin: 0 auto;
+    }
+
+    /* Wider main spacing */
+
+main {
+    gap: 1.5rem;
+}
+
+/* Four across on larger screen */
+#image-flex figure {
+    flex: 1 1 calc(25% - 1rem);
+}
+
+.nav-list {
+    gap: .75rem;
+}
+.nav-list {
+    padding: 0.6rem 0.9rem;
+}
+}
